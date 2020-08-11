@@ -67,26 +67,26 @@ public class DBService {
 	private ItemPedidoRepository itemPedidoRepository;
 	
 	public void instantiateTestDatabase() throws ParseException {
-		Categoria cat1 = new Categoria(null,"informatica");
-		Categoria cat2 = new Categoria(null,"escritorio");
-		Categoria cat3 = new Categoria(null, "Cama mesa e banho");
-		Categoria cat4 = new Categoria(null, "Eletronicos");
-	    Categoria cat5 = new Categoria(null, "Jardinagem");
-		Categoria cat6 = new Categoria(null, "Decoracao");
-		Categoria cat7 = new Categoria(null, "Perfumaria");
+		Categoria cat1 = new Categoria(null,"Suplementos Proteicos");//whey protein, whey hidrolisado
+		Categoria cat2 = new Categoria(null,"Aminoacidos ");//Bcaa,creatina,glutamina
+		Categoria cat3 = new Categoria(null, "acidos graxos");//omega3
+		Categoria cat4 = new Categoria(null, "proteina"); // colageno
+	    Categoria cat5 = new Categoria(null, "vitaminas");//Vitamina d
+		Categoria cat6 = new Categoria(null, "Suplemento mineral");//Zinco quelado, picolinato de cromo
+		Categoria cat7 = new Categoria(null, "Carboidrato");//Malto Dextrin
 		
 		
-		Produto p1 = new Produto(null,"computador", 2000.00);
-		Produto p2 = new Produto(null,"impressora", 800.00);
-		Produto p3 = new Produto(null,"mouse", 80.00);
-		Produto p4 = new Produto(null,"mesa de escritorio", 300.00);
-		Produto p5 = new Produto(null,"Toalha", 50.00);
-		Produto p6 = new Produto(null,"Colcha", 200.00);
-		Produto p7 = new Produto(null,"TV true color", 1200.00);
-		Produto p8 = new Produto(null,"Rocadeira", 800.00);
-		Produto p9 = new Produto(null,"Abajour", 100.00);
-		Produto p10 = new Produto(null,"Pendente", 180.00);
-		Produto p11 = new Produto(null,"Shampoo", 90.00);
+		Produto p1 = new Produto(null,"Whey Protein", 200.00);
+		Produto p2 = new Produto(null,"Whey Hidrolisado", 300.00);
+		Produto p3 = new Produto(null,"Bcaa", 80.00);
+		Produto p4 = new Produto(null,"Glutamina", 100.00);
+		Produto p5 = new Produto(null,"Creatina", 50.00);
+		Produto p6 = new Produto(null,"Omega-3", 50.00);
+		Produto p7 = new Produto(null,"Colageno Hidrolisado", 120.00);
+		Produto p8 = new Produto(null,"Vitamina D", 80.00);
+		Produto p9 = new Produto(null,"Zinco Quelado", 100.00);
+		Produto p10 = new Produto(null,"Picolinato de cromo", 80.00);
+		Produto p11 = new Produto(null,"Malto Dextrin", 15.00);
 		
 		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
 		cat2.getProdutos().addAll(Arrays.asList( p2,p4));
