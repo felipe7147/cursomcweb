@@ -1,7 +1,9 @@
 package com.example.cursomc.config;
 
-import java.text.ParseException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -23,15 +25,21 @@ public class ProdConfig {
 	private String strategy;
 	
 	@Bean
-	public boolean instantiateDatabase() throws ParseException {
-		
-		if(!"create".equals(strategy)) {
-			return false;
-		}
-		
-		dbService.instantiateTestDatabase();
-		return true;
-	}
+    public BasicDataSource dataSource() throws URISyntaxException {
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(dbUrl);
+        basicDataSource.setUsername(username);
+        basicDataSource.setPassword(password);
+
+        return basicDataSource;
+    }
+	
 	
 	@Bean
 	public EmailService emailService() {
