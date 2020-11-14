@@ -5,16 +5,15 @@ import java.io.Serializable;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+
 public class EmailDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	
-	@NotEmpty(message="Preenchimento obrigatorio")
-	@Email(message="Email invalido")
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Email(message="Email inválido")
 	private String email;
 	
 	public EmailDTO() {
-		
 	}
 
 	public String getEmail() {
@@ -24,5 +23,4 @@ public class EmailDTO implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 }

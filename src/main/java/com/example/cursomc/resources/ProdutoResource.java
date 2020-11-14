@@ -27,7 +27,6 @@ public class ProdutoResource {
 	public ResponseEntity<Produto> find(@PathVariable Integer id) {
 		Produto obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
-			
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -43,8 +42,6 @@ public class ProdutoResource {
 		Page<Produto> list = service.search(nomeDecoded, ids, page, linesPerPage, orderBy, direction);
 		Page<ProdutoDTO> listDto = list.map(obj -> new ProdutoDTO(obj));  
 		return ResponseEntity.ok().body(listDto);
-	
-	
-}
+	}
 
 }
